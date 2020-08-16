@@ -19,7 +19,6 @@ get_spoke_points = function(angle) {
   start_x = 0.16
   end_x = 0.16 + 0.04*cos(angle)
   by_x = (end_x - start_x)/1e4
-  # by_y = if_else(sin(angle) < 0, )
   x_seq = 0.16
   
   if (cos(angle) != 0) {
@@ -52,16 +51,14 @@ flag = df %>%
   geom_point(aes(x = 0, y = pole), size = 5, color = "#826a4b") +
   geom_point(aes(x = chakra_x, y = chakra_y), color = "#000080", size = 0.8) +
   geom_point(aes(x = spoke_sample$x, y = spoke_sample$y), size = 0.3, color = "#000080") +
-  # geom_text(aes(x = 0, y = 36, label = "Created by Pawan", alpha = 0.2), size = 3) +
   ylim(0, 50) +
   xlim(0, 0.31) +
   xlab("") +
   ylab("") +
-  # the() +
   theme(text = element_blank())
 
 flag
 
 aspect_ratio <- 31.04/58.91
 h <- 8.5
-ggsave(flag, height = h , width = h * aspect_ratio, filename = "Desktop/flag.png")
+ggsave(flag, height = h , width = h * aspect_ratio, filename = "flag.png")
